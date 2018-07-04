@@ -22,7 +22,8 @@ if ($kmi < 18.5) {
     $kmiPaaiskinimas = "II laipsnio nutukimas";
 } else {
     $kmiPaaiskinimas = "III laipsnio nutukimas";
-}};
+}}
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -35,6 +36,11 @@ if ($kmi < 18.5) {
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
 
     <title>KMI skaičiuoklė</title>
+    <style>
+        table, th, td {
+            border: 1px solid #ff5a3d;
+        }
+    </style>
 </head>
 <body>
 <main role="main" class="container">
@@ -54,16 +60,49 @@ if ($kmi < 18.5) {
             <label>Ūgis (cm):</label>
             <input type="number" name="ugis" class="form-control" placeholder="cm" required>
         </div>
-        <button type="submit" class="btn btn-primary">Skaičiuoti KMI</button>
+        <button type="submit" class="btn btn-primary">Skaičiuoti KMI</button><br><br>
     </form>
 </main>
 
 
-
 <main role="main" class="container">
     <p>Jūsų KMI: <?php
+
            if (isset($kmi)) {
-   echo 'KMI:'.$kmi.'(' . $kmiPaaiskinimas . ')'; }?></p> <br >
+               echo 'KMI:' . $kmi . '(' . $kmiPaaiskinimas . ')';
+               echo '<table style="width:45%">
+    <tr>
+        <th>KMI</th>
+        <th>IŠVADA</th>
+    </tr>
+    <tr>
+        <td><18,5</td>
+        <td>Per mazas svoris/mitybos nepakankamumas</td>
+    </tr>
+    <tr>
+        <td>18,5-24,9</td>
+        <td>Normalus svoris,normali kuno mase</td>
+    </tr>
+    <tr>
+        <td>25,0-29,9</td>
+        <td>Antsvoris</td>
+    </tr>
+    <tr>
+        <td><30,0-34,9</td>
+        <td>1 laipsnio nutukimas</td>
+    </tr>
+    <tr>
+        <td>35,0-39,9</td>
+        <td>II laipsnio nutukimas</td>
+    </tr>
+    <tr>
+        <td>>40,0</td>
+        <td>III laipsnio nutukimas</td>
+    </tr>
+</table> ';
+           }
+           ?>
+    </p> <br >
 
 
     <a class="btn btn-primary" href="index1.php">Grįžti į skaičiuoklę</a>
